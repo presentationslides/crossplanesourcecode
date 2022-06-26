@@ -3,7 +3,7 @@ kind: ResourceGroup
 metadata:
   name: gitops-webinar-rg
 spec:
-  location: West Europe
+  location: North Europe
 ---
 apiVersion: database.azure.crossplane.io/v1beta1
 kind: MySQLServer
@@ -14,7 +14,7 @@ spec:
     administratorLogin: myadmin
     resourceGroupNameRef:
       name:  gitops-webinar-rg
-    location: West Europe
+    location: North Europe
     minimalTlsVersion: TLS1_2
     sslEnforcement: Enabled
     version: "5.7"
