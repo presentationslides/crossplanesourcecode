@@ -19,7 +19,7 @@ spec:
     sslEnforcement: Enabled
     version: "5.7"
     sku:
-      tier: GeneralPurpose
+      tier: Basic
       capacity: 2
       family: Gen5
     storageProfile:
