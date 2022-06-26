@@ -1,0 +1,25 @@
+---
+apiVersion: database.azure.crossplane.io/v1beta1
+kind: MySQLServer
+metadata:
+  name: gitops-webinar-2022
+spec:
+  forProvider:
+    administratorLogin: myadmin
+    resourceGroupNameRef:
+      name:  FTS_SANDBOX_aplaczek
+    location: West Europe
+    minimalTlsVersion: TLS1_2
+    sslEnforcement: Enabled
+    version: "5.7"
+    sku:
+      tier: GeneralPurpose
+      capacity: 2
+      family: Gen5
+    storageProfile:
+      storageMB: 20480
+  writeConnectionSecretToRef:
+    namespace: crossplane
+    name: mysql-wordpress-creds
+  providerConfigRef:
+    name: default
