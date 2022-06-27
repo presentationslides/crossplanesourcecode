@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gitops-crossplane-db-app
+spec:
+  containers:
+  - name: busybox
+    image: busybox:1.28
+    args:
+    - sleep
+    - "1000000"
+    env:
+    - name: DB_HOST
+      valueFrom:
+        secretKeyRef:
+          name: mysql-wordpress-creds
+          key: endpoint
+    - name: DB_USER
+      valueFrom:
+        secretKeyRef:
+          name: mysql-wordpress-creds
+          key: username
+    - name: DB_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: mysql-wordpress-creds
+          key: password
+

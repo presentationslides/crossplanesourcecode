@@ -29,3 +29,19 @@ spec:
     name: mysql-wordpress-creds
   providerConfigRef:
     name: default
+---
+apiVersion: database.azure.crossplane.io/v1alpha3
+kind: MySQLServerFirewallRule
+metadata:
+  name: firewall-rule
+spec:
+  providerConfigRef:
+    name: default
+  forProvider:
+    resourceGroupNameRef:
+      name: gitops-webinar-rg
+    serverNameRef:
+      name: gitops-webinar-2022
+    properties:
+      startIpAddress: "0.0.0.0"
+      endIpAddress: "0.0.0.0"
